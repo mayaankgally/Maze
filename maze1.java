@@ -1,4 +1,4 @@
-public class maze extends mazebase
+public class maze1 extends mazebase
 {
     // default constructor suffices and is equivalent to
     // public maze() { super(); }
@@ -21,33 +21,56 @@ public class maze extends mazebase
 
      // But the following won't work (but will compile)
 
-     int[] DX = {0,1,0,-1};
-     int[] DY = {-1,0,1,0};
-     int dir = (int)(Math.random()*4);
-     int ny = y+DY[dir]*2;
-     int nx = x+DX[dir]*2;
-     while (ny>=0 && ny<mheight && nx>=0 && nx<mwidth && M[ny][nx]==0)
-     {
-         M[y+DY[dir]][x+DX[dir]] = 1;
-         drawblock(y+DY[dir],x+DX[dir]);
-         digout(ny,nx);
-     }
-     while (ny>=0 && ny<mheight && nx>=0 && nx<mwidth && M[ny][nx]==0)
-     {
-         M[y+DY[dir]][x-DX[dir]] = 1;
-         drawblock(y+DY[dir],x+DX[dir]);
-         digout(ny,nx);
-     }
+    while(true)
+    {
+        int dir = (int)(Math.random() * 4);
+        if(dir == NORTH)
+        {
+            if(y-2>=0 && M[y-2][x] == 0)
+            {
+                M[y-1][x] = M[y-2][x] = 1;
+                drawblock(y-1,x); drawblock(y-2,x);
+                y = y-2;
+            }
+        }
+        if(dir == SOUTH)
+        {
+            if(y+2<mheight && M[y+2][x] == 0)
+            {
+                M[y+1][x] = M[y+2][x] = 1;
+                drawblock(y+1,x); drawblock(y+2,x);
+                y = y+2;
+            }
+        }
+        if(dir == WEST)
+        {
+            if(x-2>=0 && M[y][x-2] == 0)
+            {
+                M[y][x-1] = M[y][x-2] = 1;
+                drawblock(y,x-1); drawblock(y,x-2);
+                x = x-2;
+            }
+        }
+        if(dir == EAST)
+        {
+            if(x+2>=0 && M[y][x+2] == 0)
+            {
+                M[y][x+1] = M[y][x+2] = 1;
+                drawblock(y,x+1); drawblock(y,x+2);
+                x = x+2;
+            }
+        }
+    }
      // sample code that tries to digout one space to the left:
-     if (x-1>=0) digout(y,x-1);
+    // if (x-1>=0) digout(y,x-1);
      // sample code that tries to digout TWO space to the right IF it's not
      // already dug out:
-     if (x+2<mwidth && M[y][x+2]==0) // always check for maze boundaries
-	 {
-	     M[y][x+1] = 1;
-	     drawblock(y,x+1);
-	     digout(y,x+2);
-	 }
+     //if (x+2<mwidth && M[y][x+2]==0) // always check for maze boundaries
+	 //{
+	    // M[y][x+1] = 1;
+	    // drawblock(y,x+1);
+	     //digout(y,x+2);
+	 //}
  }//digout
 
     public static void main(String[] av)

@@ -1,0 +1,17 @@
+Digout Recursive Function Pseudo/Plannning
+
+Requirements:
+    Recursive Calls that check conditions before carrying out the next
+    Using the stack data structure (see notes)
+    Check each direction before moving to the next recursive call
+    Do not change/modify super class
+
+
+
+From Lab Outline:
+    "dig out" the space at position y,x. This means set M[y][x]=1, and call drawblock(y,x);
+for each possible direction (n,e,s,w),
+look at the space two steps away in that direction (if you won't be looking out of bounds and if it's not already dug out).
+if that space is a wall (0), "dig through" (carve out intermediate square) to that space, and recursively execute the algorithm on that space (the one two steps away in the current direction).
+Optionally, call nextframe(40); to slow down the animation (by 40ms in this example) so you can see better how the program is running. Otherwise the maze will only be displayed once fully generated.
+
