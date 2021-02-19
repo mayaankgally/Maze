@@ -88,14 +88,24 @@ public class maze extends mazebase
 	 //}
  }//digout
 
-    @Override
-    public void solve()
+@Override
+public void solve()
+{
+    int x = 1;
+    int y = 1;
+    //checked = new boolean[n][n];
+    for(int i = 0; i < M.length; i++)
     {
-        int x = 1;
-        int y = 1;
-        checked = new boolean[n][n];
-
+        if(M[y][x] != 0)
+        {
+            nextframe(40);
+            drawdot(y,x);
+            y++;
+            x++;
+        }
     }
+
+}
 
     public static void main(String[] av)
     {
