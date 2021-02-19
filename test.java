@@ -1,4 +1,4 @@
-public class maze1 extends mazebase
+public class testmz extends mazebase
 {
     // default constructor suffices and is equivalent to
     // public maze() { super(); }
