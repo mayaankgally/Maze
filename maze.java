@@ -93,6 +93,7 @@ public void solve()
 {
     int x = 1;
     int y = 1;
+<<<<<<< HEAD
     int i = 0;
     //checked = new boolean[n][n];
     while(x!=mwidth-2 && x!=mheight-2)
@@ -104,6 +105,18 @@ public void solve()
         x = x+1;
         y = y+1;
         System.out.println(x + " " +  y + " " + dir);
+=======
+    //checked = new boolean[n][n];
+    for(int i = 0; i < M.length; i++)
+    {
+        if(M[y][x] != 0)
+        {
+            nextframe(40);
+            drawdot(y,x);
+            y++;
+            x++;
+        }
+>>>>>>> bb68f3ff5fdba1591f68d8b0cfd7a7f6e481d0de
     }
 
 }
