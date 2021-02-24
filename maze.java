@@ -88,14 +88,25 @@ public class maze extends mazebase
 	 //}
  }//digout
 
-    @Override
-    public void solve()
+@Override
+public void solve()
+{
+    int x = 1;
+    int y = 1;
+    int i = 0;
+    //checked = new boolean[n][n];
+    while(x!=mwidth-2 && x!=mheight-2)
     {
-        int x = 1;
-        int y = 1;
-        checked = new boolean[n][n];
-
+        int dir = (int)(Math.random() * 4);
+        nextframe(40);
+        drawdot(y,x);
+        i++;
+        x = x+1;
+        y = y+1;
+        System.out.println(x + " " +  y + " " + dir);
     }
+
+}
 
     public static void main(String[] av)
     {
@@ -110,4 +121,3 @@ public class maze extends mazebase
     }
 
 }//maze subclass
-
