@@ -1,6 +1,6 @@
 public class maze extends mazebase
 {
-    private boolean[][] checked;
+    //private boolean[][] checked;
     // default constructor suffices and is equivalent to
     // public maze() { super(); }
 
@@ -93,32 +93,22 @@ public void solve()
 {
     int x = 1;
     int y = 1;
-<<<<<<< HEAD
-    int i = 0;
-    //checked = new boolean[n][n];
-    while(x!=mwidth-2 && x!=mheight-2)
-    {
-        int dir = (int)(Math.random() * 4);
-        nextframe(40);
-        drawdot(y,x);
-        i++;
-        x = x+1;
-        y = y+1;
-        System.out.println(x + " " +  y + " " + dir);
-=======
-    //checked = new boolean[n][n];
-    for(int i = 0; i < M.length; i++)
+    int dir = (int)(Math.random() * 4);
+    //checked = new boolean[n];
+    
+    while(y!=mheight-2 && x!=mwidth-1)
     {
         if(M[y][x] != 0)
         {
             nextframe(40);
+            drawblock(x,y);
             drawdot(y,x);
-            y++;
-            x++;
+            System.out.println(x);
+            System.out.println(y);
         }
->>>>>>> bb68f3ff5fdba1591f68d8b0cfd7a7f6e481d0de
+        y++;
+        x++;
     }
-
 }
 
     public static void main(String[] av)
@@ -134,3 +124,4 @@ public void solve()
     }
 
 }//maze subclass
+
